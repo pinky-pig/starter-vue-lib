@@ -1,5 +1,10 @@
 import path from 'node:path'
 import fs from 'node:fs'
+import { loadEnv } from 'vite'
+
+const ENV = { ...loadEnv('development', process.cwd()) }
+
+console.log(ENV.VITE_PKG_NAME, 'var')
 
 const sourcePath1 = path.resolve(__dirname, '../packages/package.json') // 修改为实际的第一个源文件路径
 const destinationPath1 = path.resolve(__dirname, '../output-lib/package.json') // 修改为实际的第一个目标文件路径
@@ -19,6 +24,11 @@ function copy(sourcePath: string, targetPath: string) {
       console.error(`Error reading source file: ${err}`)
       process.exit(1)
     }
+
+    // 替换包名和仓库地址
+    data = data.replace(/pkg_name/g, ENV.VITE_PKG_NAME)
+    data = data.replace(/pkg_homepage/g, ENV.VITE_PKG_HOMEPAGE)
+    data = data.replace(/pkg_repository_url/g, ENV.VITE_PKG_REPOSITORY_URL)
 
     // 写入目标文件
     fs.writeFile(targetPath, data, 'utf8', (err) => {
