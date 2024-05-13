@@ -22,14 +22,14 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.16.3",
+    "@antfu/eslint-config": "^2.17.0",
     "@egoist/tailwindcss-icons": "^1.8.0",
-    "@iconify-json/carbon": "^1.1.32",
+    "@iconify-json/carbon": "^1.1.33",
     "@iconify-json/lucide": "^1.1.187",
-    "@iconify/json": "^2.2.207",
-    "@microsoft/api-extractor": "^7.43.2",
+    "@iconify/json": "^2.2.209",
+    "@microsoft/api-extractor": "^7.43.4",
     "@types/clean-css": "^4.2.11",
-    "@types/node": "^20.12.10",
+    "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
@@ -49,12 +49,12 @@
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
     "lucide-vue-next": "^0.378.0",
-    "pnpm": "^9.1.0",
+    "pnpm": "^9.1.1",
     "postcss": "^8.4.38",
     "radix-vue": "^1.7.4",
-    "rimraf": "^5.0.5",
+    "rimraf": "^5.0.7",
     "shadcn-vue": "^0.10.4",
-    "shiki": "^1.4.0",
+    "shiki": "^1.5.1",
     "simple-git": "^3.24.0",
     "simple-git-hooks": "^2.11.1",
     "tailwind-merge": "^2.3.0",
@@ -62,7 +62,7 @@
     "tailwindcss-animate": "^1.0.7",
     "taze": "^0.13.8",
     "typescript": "^5.4.5",
-    "unplugin-auto-import": "^0.17.5",
+    "unplugin-auto-import": "^0.17.6",
     "unplugin-vue-components": "^0.27.0",
     "unplugin-vue-router": "^0.8.6",
     "vite": "^5.2.11",
@@ -73,7 +73,7 @@
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
     "vue-sonner": "^1.1.2",
-    "vue-tsc": "^2.0.16"
+    "vue-tsc": "^2.0.17"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
