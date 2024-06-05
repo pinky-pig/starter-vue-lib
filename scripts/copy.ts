@@ -1,8 +1,12 @@
-import path from 'node:path'
+import path, { dirname } from 'node:path'
 import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { loadEnv } from 'vite'
 
 const ENV = { ...loadEnv('development', process.cwd()) }
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const sourcePath1 = path.resolve(__dirname, '../packages/package.json') // 修改为实际的第一个源文件路径
 const destinationPath1 = path.resolve(__dirname, '../output-lib/package.json') // 修改为实际的第一个目标文件路径
@@ -21,6 +25,22 @@ function copy(sourcePath: string, targetPath: string) {
     if (err) {
       console.error(`Error reading source file: ${err}`)
       process.exit(1)
+    }
+
+    // 如果是 package.json 文件，则添加一些字段
+    if (sourcePath.endsWith('package.json')) {
+      const packageJson = JSON.parse(data)
+      packageJson.main = './pkg_name.es.js'
+      packageJson.module = './pkg_name.es.js'
+      packageJson.types = './playground.d.ts'
+      packageJson.exports = {
+        '.': {
+          types: './playground.d.ts',
+          require: './pkg_name.umd.cjs',
+          import: './pkg_name.es.js',
+        },
+      }
+      data = JSON.stringify(packageJson, null, 2)
     }
 
     // 替换包名和仓库地址

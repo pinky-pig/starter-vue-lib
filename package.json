@@ -23,7 +23,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.17.0",
     "@arvinn/eslint-config": "^0.0.4",
     "@arvinn/prettier-config": "^0.0.1",
     "@egoist/tailwindcss-icons": "^1.8.0",

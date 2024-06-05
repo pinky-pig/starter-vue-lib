@@ -38,8 +38,10 @@
   "scripts": {
     "dev": "vite"
   },
-  "devDependencies": {
-    "typescript": "^4.9.3",
+  "peerDependencies": {
     "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3"
   }
 }

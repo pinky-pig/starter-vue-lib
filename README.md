@@ -30,7 +30,47 @@ npm run dev
 import foo from '../../packages/foo'
 ```
 
-### 测试本地包
+### 1. 测试本地包（workspace）
+
+1. 在 packages 下新建文件
+
+2. 根目录新建 `pnpm-workspace.yaml` 文件，并写入
+
+```yaml
+packages:
+  - 'packages/**'
+```
+
+3. 安装全局的包，使用 `-w` ， 安装到 packages 中的包，使用 `-r filter` ， 这个可以参考官方文档。 `-r` 是遍历文件夹 recurse（递归）。
+
+```bash
+# 安装到单个 packages
+pnpm i dayjs -r --filter @test/web
+```
+
+4. 使用
+
+在根项目中使用，直接这样安装：
+
+```bash
+# 这个包已经在 packages 中声明
+pnpm i @arvin/materials -w
+```
+
+然后在组件中使用
+
+```js
+import { AnimatedTooltip } from '@arvin/materials'
+```
+
+**避免使用 workspace 中的包**
+
+```bash
+# foo 是包的名字
+pnpm --ignore-workspace install foo
+```
+
+### 2. 测试本地包(link)
 
 <https://pnpm.io/zh/next/cli/link>
 
@@ -64,11 +104,15 @@ pnpm link --global foo
 
 ### 构建
 
+会打包 js 和 css 
+
 ```bash
 npm run build:lib
 ```
 
 ### 发包
+
+会修改并拷贝 package.json，拷贝 README.md
 
 ```bash
 npm run release:lib
