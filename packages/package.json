@@ -1,15 +1,8 @@
 {
   "name": "pkg_name",
-  "type": "module",
   "version": "0.0.2-alpha.6.19",
   "private": false,
-  "author": "arvin",
-  "license": "MIT",
-  "homepage": "pkg_homepage",
-  "repository": {
-    "type": "git",
-    "url": "pkg_repository_url"
-  },
+  "type": "module",
   "keywords": [
     "pkg_name",
     "vue3-bento",
@@ -19,22 +12,29 @@
     "bento",
     "grid"
   ],
-  "exports": {
-    ".": {
-      "import": "./pkg_name.es.js",
-      "require": "./pkg_name.umd.cjs"
-    }
+  "license": "MIT",
+  "homepage": "pkg_homepage",
+  "repository": {
+    "type": "git",
+    "url": "pkg_repository_url"
   },
+  "author": "arvin",
+  "files": [
+    "*"
+  ],
   "main": "./pkg_name.es.js",
   "module": "./pkg_name.es.js",
   "types": "./playground.d.ts",
+  "exports": {
+    ".": {
+      "require": "./pkg_name.umd.cjs",
+      "import": "./pkg_name.es.js"
+    }
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
   },
-  "files": [
-    "*"
-  ],
   "scripts": {
     "dev": "vite"
   },
