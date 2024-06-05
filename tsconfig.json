@@ -11,10 +11,7 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "types": [
-      "vite/client",
-      "unplugin-vue-router/client"
-    ],
+    "types": ["vite/client", "unplugin-vue-router/client"],
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
@@ -33,9 +30,5 @@
     "components.d.ts",
     "auto-imports.d.ts"
   ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "eslint.config.js"
-  ]
+  "exclude": ["dist", "node_modules", "eslint.config.js", "output-lib"]
 }
